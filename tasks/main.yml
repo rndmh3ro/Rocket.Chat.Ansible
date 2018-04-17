@@ -221,7 +221,8 @@
       production: true
     become: true
     become_user: "{{ rocket_chat_service_user }}"
-    chdir: "{{ rocket_chat_application_path }}/bundle/programs/server"
+    args:
+      chdir: "{{ rocket_chat_application_path }}/bundle/programs/server"
     environment:
       PATH: "{{ rocket_chat_node_prefix }}/bin:{{ ansible_env.PATH }}"
     tags: build
